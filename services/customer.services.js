@@ -31,17 +31,26 @@ class Customer {
       return customer
     }
 
-    async Update(id,changes){
+    async Create(data){
+      const NewProduct = {
+        id: faker.datatype.uuid(),
+        ...data
+      }
+      this.customer.push(NewProduct)
+      return NewProduct
+    }
+
+    async Update(id,changes) {
       const index = this.customer.findIndex(item => item.id === id);
       if(index === -1){
         throw boom.notFound("Customer Not Found")
       }
-        custo = this.customer[index];
-        this.customer[index]={
-          ...custo,
-          ...changes
-        };
-      return this.customer[index]
+      let custo = this.customer[index];
+      this.customer[index] = {
+        ...custo,
+        ...changes
+      }
+      return this.customer[index];
     }
 
     async Delete(id){

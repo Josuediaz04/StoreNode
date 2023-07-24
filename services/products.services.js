@@ -52,7 +52,7 @@ class ProductsServices {
     if(index === -1){
       throw boom.notFound('product not found')
     }
-    product = this.productos[index];
+    let product = this.productos[index];
     this.productos[index] = {
       ...product,
       ...changes
