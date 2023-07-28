@@ -7,13 +7,13 @@ const {createCategorie,getCategorie,updateCategorie} = require ('../schemas/cate
 const { ne, ge } = require('faker/lib/locales');
 const { valid } = require('joi');
 
-router.get('/', (validatorHandler,getCategorie,'params'),
+router.get('/',
  async(req,res)=>{
   const cat = await categorias.Find()
   res.json(cat);
 })
 
-router.get('/:id',(validatorHandler,getCategorie,'params'),
+router.get('/:id',
    async(req,res,next)=>{
   try {
     const {id} = req.params;
@@ -24,7 +24,7 @@ router.get('/:id',(validatorHandler,getCategorie,'params'),
   }
 })
 
-router.post('/', (validatorHandler, createCategorie, 'body'),
+router.post('/',
   async(req,res,next)=>{
     try {
       const name = req.body;
@@ -35,7 +35,7 @@ router.post('/', (validatorHandler, createCategorie, 'body'),
     }
 })
 
-router.patch('/:id', (validatorHandler,createCategorie,'body'),
+router.patch('/:id',
   async (req,res,next)=>{
     try {
       const {id} = req.params;
@@ -49,7 +49,7 @@ router.patch('/:id', (validatorHandler,createCategorie,'body'),
 })
 
 
-router.delete('/:id',(validatorHandler, getCategorie,'params'),
+router.delete('/:id',
   async(req,res,next)=>{
     try {
       const id = req.params;

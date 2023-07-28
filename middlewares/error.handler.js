@@ -13,7 +13,6 @@ function errorHandler(err,req,res,next){
 }
 
 
-
 function BoomerrorHandler(err,req,res,next){
  if (err.isBoom) {
   const {output} = err;

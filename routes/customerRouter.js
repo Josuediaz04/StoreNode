@@ -9,13 +9,13 @@ const { valid } = require('joi');
 
 
 
-router.get('/', (validatorHandler, getCustomer, 'params'),
+router.get('/',
   async (req,res)=>{
     const cus= await customer.Find()
     res.json(cus)
 })
 
-router.get('/:id', (validatorHandler, getCustomer, 'params'),
+router.get('/:id',
   async (req,res,next)=>{
     try {
       const {id} = req.params;
@@ -26,7 +26,7 @@ router.get('/:id', (validatorHandler, getCustomer, 'params'),
     }
 });
 
-router.post('/', (validatorHandler, createCustomer, 'body'),
+router.post('/',
   async(req,res,next)=>{
     try {
       const body = req.body;
@@ -37,7 +37,7 @@ router.post('/', (validatorHandler, createCustomer, 'body'),
     }
 });
 
-router.patch('/:id', (validatorHandler, createCustomer, 'body'),
+router.patch('/:id',
   async(req,res,next)=>{
     try {
       const {id} = req.params;
@@ -49,7 +49,7 @@ router.patch('/:id', (validatorHandler, createCustomer, 'body'),
     }
 });
 
-router.delete('/:id', (validatorHandler, getCustomer, 'params'),
+router.delete('/:id',
   async(req,res,next)=>{
     try {
       const {id} = req.params;

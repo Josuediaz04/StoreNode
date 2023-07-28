@@ -18,7 +18,6 @@ const getCategorie = Joi.object({
   id: id.required()
 })
 
-
 module.exports = {
   createCategorie,
   updateCategorie,
