@@ -10,12 +10,12 @@ class Categories {
   }
 
   Generate(){
-      const limit = 10;
+      const limit = 100;
       for (let index = 0; index < limit; index++) {
         this.categories.push({
         id: faker.datatype.uuid(),
         name:faker.commerce.productAdjective(),
-        price: parseInt (faker.commerce.price(),10),
+        price: parseInt (faker.commerce.price(),100),
         isBlock: faker.datatype.boolean()
       })
     }

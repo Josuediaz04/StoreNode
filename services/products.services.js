@@ -13,7 +13,7 @@ class ProductsServices {
       this.productos.push({
         id: faker.datatype.uuid(),
         name: faker.commerce.productName(),
-        price: parseInt(faker.commerce.price(), 10),
+        price: parseInt(faker.commerce.price(), 100),
         isBlock: faker.datatype.boolean()
       });
     }
