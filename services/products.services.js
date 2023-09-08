@@ -1,13 +1,13 @@
 const faker = require('faker');
 const boom = require('@hapi/boom')
 const pool = require('../libs/postgres.pool');
+const sequalize = require('../libs/sequalize')
 
 class ProductsServices {
   constructor() {
     this.productos = []; // Inicializa la propiedad productos antes de llamar a Generate()
     this.Generate();
-    this.pool = pool;
-     this.pool.on('error', (err) => console.error(err));
+
   }
 
   Generate() {
@@ -33,9 +33,10 @@ class ProductsServices {
 
   async Find() {
     const query = 'SELECT * FROM task';
-    const rta = await this.pool.query(query);
-    console.log(query)
-    return rta.rows;
+    const [data] = await sequalize.query(query);
+    console.log(data)
+    return data
+
 
   }
 
